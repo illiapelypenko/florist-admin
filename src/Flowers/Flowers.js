@@ -4,9 +4,9 @@ import Flower from "./Flower";
 
 const Flowers = ({ flowers, getItems }) => {
   return (
-    <div className="flowers">
-      {flowers.map(flower => (
-        <Flower flower={flower} getItems={getItems} />
+    <div className='flowers'>
+      {flowers.map((flower, index) => (
+        <Flower key={index} flower={flower} getItems={getItems} />
       ))}
     </div>
   );

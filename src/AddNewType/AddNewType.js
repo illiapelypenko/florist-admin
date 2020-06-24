@@ -11,10 +11,7 @@ export const AddNewType = ({ getTypes }) => {
     if (!name) return;
 
     try {
-      const res = await axios.post(`${serverURL}/api/types/`, { name });
-      if (!res.ok) {
-        throw Error(`server error`);
-      }
+      await axios.post(`${serverURL}/api/types/`, {name} );
     } catch (e) {
       console.error(e);
     }

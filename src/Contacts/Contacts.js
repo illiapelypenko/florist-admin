@@ -19,14 +19,11 @@ export const Contacts = ({ contacts, getContacts }) => {
     if (!phone1 || !phone2 || !email) return;
 
     try {
-      const res = await axios.post(`${serverURL}/api/contacts/edit`, {
+      const res = await axios.put(`${serverURL}/api/contacts/edit`, {
         phone1,
         phone2,
         email,
       });
-      if (!res.ok) {
-        throw Error(`server error`);
-      }
     } catch (e) {
       console.error(e);
     }

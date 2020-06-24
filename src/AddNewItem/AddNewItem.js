@@ -32,12 +32,9 @@ export const AddNewItem = ({ getItems, types }) => {
 		data.append('type', type);
 
 		try {
-			const res = await axios.post(`${serverURL}/api/items/upload`, 
+			await axios.post(`${serverURL}/api/items/upload`, 
         data
       );
-			if (!res.ok) {
-				throw Error(`server error`);
-			}
 		} catch (e) {
 			console.error(e);
 		}
@@ -79,8 +76,10 @@ export const AddNewItem = ({ getItems, types }) => {
           value={type}
           onChange={(e) => setType(e.target.value)}
         >
-          {types.map((type) => (
-            <option value={type.name}>{type.name}</option>
+          {types.map((type, index) => (
+            <option key={index} value={type.name}>
+              {type.name}
+            </option>
           ))}
         </select>
       </div>

@@ -9,20 +9,17 @@ export const Types = ({ types, getTypes }) => {
   const handleDelete = async id => {
     try {
       const res = await axios.delete(`${serverURL}/api/types/delete/${id}`);
-      if (!res.ok) {
-        throw Error(`server error`);
-      }
-      getTypes();
     } catch (e) {
       console.error(e);
     }
+    getTypes();
   };
 
   return (
     <div className="types">
       <p>Types:</p>
-      {types.map(type => (
-        <div className="type">
+      {types.map((type, index) => (
+        <div className="type" key={index}>
           <div>{type.name}</div>
           <FontAwesomeIcon
             icon={faTimes}
