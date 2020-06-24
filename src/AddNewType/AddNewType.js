@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../AddNew.scss";
 import serverURL from "../serverURL";
+import axios from 'axios';
 
 export const AddNewType = ({ getTypes }) => {
   const [name, setName] = useState("");
@@ -10,13 +11,7 @@ export const AddNewType = ({ getTypes }) => {
     if (!name) return;
 
     try {
-      const res = await fetch(`${serverURL}/api/types/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name })
-      });
+      const res = await axios.post(`${serverURL}/api/types/`, { name });
       if (!res.ok) {
         throw Error(`server error`);
       }

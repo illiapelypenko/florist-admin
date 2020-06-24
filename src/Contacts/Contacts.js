@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import serverURL from "../serverURL";
 import "../AddNew.scss";
+import axios from 'axios';
 
 export const Contacts = ({ contacts, getContacts }) => {
   const [phone1, setPhone1] = useState("");
@@ -18,12 +19,10 @@ export const Contacts = ({ contacts, getContacts }) => {
     if (!phone1 || !phone2 || !email) return;
 
     try {
-      const res = await fetch(`${serverURL}/api/contacts/edit`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ phone1, phone2, email })
+      const res = await axios.post(`${serverURL}/api/contacts/edit`, {
+        phone1,
+        phone2,
+        email,
       });
       if (!res.ok) {
         throw Error(`server error`);

@@ -6,6 +6,7 @@ import Flowers from './Flowers/Flowers';
 import serverURL from './serverURL';
 import { Types } from './Types/Types';
 import { Contacts } from './Contacts/Contacts';
+import axios from 'axios';
 
 const App = () => {
 	const [items, setItems] = useState([]);
@@ -13,19 +14,19 @@ const App = () => {
 	const [contacts, setContacts] = useState([]);
 
 	const getItems = async () => {
-		const res = await fetch(`${serverURL}/api/items/all`);
+		const res = await axios.get(`${serverURL}/api/items/all`);
 		const items = await res.json();
 		setItems(items);
 	};
 
 	const getTypes = async () => {
-		const res = await fetch(`${serverURL}/api/types/all`);
+		const res = await axios.get(`${serverURL}/api/types/all`);
 		const types = await res.json();
 		setTypes(types);
 	};
 
 	const getContacts = async () => {
-		const res = await fetch(`${serverURL}/api/contacts/`);
+		const res = await axios.get(`${serverURL}/api/contacts/`);
 		const contacts = await res.json();
 		setContacts(contacts);
 	};

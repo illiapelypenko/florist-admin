@@ -2,13 +2,12 @@ import React from 'react';
 import serverURL from '../serverURL';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 
 const Flower = ({ flower: { _id, fileName, name, price }, getItems }) => {
 	const handleDelete = async () => {
 		try {
-			const res = await fetch(`${serverURL}/api/items/delete/${_id}`, {
-				method: 'DELETE'
-			});
+			const res = await axios.delete(`${serverURL}/api/items/delete/${_id}`);
 			if (!res.ok) {
 				throw Error(`server error`);
 			}

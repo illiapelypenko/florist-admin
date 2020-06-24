@@ -3,13 +3,12 @@ import "./Types.scss";
 import serverURL from "../serverURL";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import axios from 'axios';
 
 export const Types = ({ types, getTypes }) => {
   const handleDelete = async id => {
     try {
-      const res = await fetch(`${serverURL}/api/types/delete/${id}`, {
-        method: "DELETE"
-      });
+      const res = await axios.delete(`${serverURL}/api/types/delete/${id}`);
       if (!res.ok) {
         throw Error(`server error`);
       }

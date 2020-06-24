@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 // import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import '../AddNew.scss';
 import serverURL from '../serverURL';
+import axios from 'axios';
 
 export const AddNewItem = ({ getItems, types }) => {
 	const [file, setFile] = useState();
@@ -32,10 +33,9 @@ export const AddNewItem = ({ getItems, types }) => {
 		data.append('type', type);
 
 		try {
-			const res = await fetch(`${serverURL}/api/items/upload`, {
-				method: 'POST',
-				body: data
-			});
+			const res = await axios.post(`${serverURL}/api/items/upload`, {
+        data
+      });
 			if (!res.ok) {
 				throw Error(`server error`);
 			}
