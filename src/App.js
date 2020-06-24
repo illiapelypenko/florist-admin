@@ -15,7 +15,6 @@ const App = () => {
 
 	const getItems = async () => {
 		const res = await axios.get(`${serverURL}/api/items/all`);
-		console.log(res);
 		const items = await res.data;
 		setItems(items);
 	};

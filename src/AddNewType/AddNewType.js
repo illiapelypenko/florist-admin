@@ -23,19 +23,19 @@ export const AddNewType = ({ getTypes }) => {
   };
 
   return (
-    <form className="addNew" onSubmit={handleSubmit}>
-      <div className="addNew__form-piece">
-        <label for="name">Name:</label>
+    <form className='addNew' onSubmit={handleSubmit}>
+      <div className='addNew__form-piece'>
+        <label htmlFor='name'>Name:</label>
         <input
-          type="string"
-          name="name"
-          id="name"
+          type='string'
+          name='name'
+          id='name'
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
       </div>
-      <div className="addNew__form-piece">
-        <input id="submit" type="submit" value="Add" />
+      <div className='addNew__form-piece'>
+        <input id='submit' type='submit' value='Add' />
       </div>
     </form>
   );
