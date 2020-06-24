@@ -15,19 +15,20 @@ const App = () => {
 
 	const getItems = async () => {
 		const res = await axios.get(`${serverURL}/api/items/all`);
-		const items = await res.json();
+		console.log(res);
+		const items = await res.data;
 		setItems(items);
 	};
 
 	const getTypes = async () => {
 		const res = await axios.get(`${serverURL}/api/types/all`);
-		const types = await res.json();
+		const types = await res.data;
 		setTypes(types);
 	};
 
 	const getContacts = async () => {
 		const res = await axios.get(`${serverURL}/api/contacts/`);
-		const contacts = await res.json();
+		const contacts = await res.data;
 		setContacts(contacts);
 	};
 
