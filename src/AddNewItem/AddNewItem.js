@@ -7,8 +7,8 @@ import serverURL from '../serverURL';
 export const AddNewItem = ({ getItems, types }) => {
 	const [file, setFile] = useState();
 	const [key, setKey] = useState(0);
-	const [name, setName] = useState('');
-	const [price, setPrice] = useState('');
+	const [name, setName] = useState('qwe');
+	const [price, setPrice] = useState('123');
 	const [type, setType] = useState('');
 
 	const setDefaultSelectValue = () => {
@@ -26,7 +26,7 @@ export const AddNewItem = ({ getItems, types }) => {
 
 		const data = new FormData();
 
-		data.append(file.name, file);
+		data.append('file', file);
 		data.append('name', name);
 		data.append('price', price);
 		data.append('type', type);
