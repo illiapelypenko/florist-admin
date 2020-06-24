@@ -22,7 +22,7 @@ export const AddNewType = ({ getTypes }) => {
   return (
     <form className='addNew' onSubmit={handleSubmit}>
       <div className='addNew__form-piece'>
-        <label htmlFor='name'>Name:</label>
+        <label htmlFor='name'>New type name:</label>
         <input
           type='string'
           name='name'

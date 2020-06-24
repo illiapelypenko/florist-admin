@@ -8,9 +8,6 @@ const Flower = ({ flower: { _id, fileName, name, price }, getItems }) => {
 	const handleDelete = async () => {
 		try {
 			const res = await axios.delete(`${serverURL}/api/items/delete/${_id}`);
-			if (!res.ok) {
-				throw Error(`server error`);
-			}
 			getItems();
 		} catch (e) {
 			console.error(e);
