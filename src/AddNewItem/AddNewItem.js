@@ -8,8 +8,8 @@ import axios from 'axios';
 export const AddNewItem = ({ getItems, types }) => {
 	const [file, setFile] = useState();
 	const [key, setKey] = useState(0);
-	const [name, setName] = useState('qwe');
-	const [price, setPrice] = useState('123');
+	const [name, setName] = useState('');
+	const [price, setPrice] = useState('');
 	const [type, setType] = useState('');
 
 	const setDefaultSelectValue = () => {

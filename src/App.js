@@ -11,7 +11,7 @@ import axios from 'axios';
 const App = () => {
 	const [items, setItems] = useState([]);
 	const [types, setTypes] = useState([]);
-	const [contacts, setContacts] = useState([]);
+	const [contacts, setContacts] = useState({});
 
 	const getItems = async () => {
 		const res = await axios.get(`${serverURL}/api/items/all`);
