@@ -4,23 +4,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 
-const Flower = ({ flower: { _id, fileName, name, price }, getItems }) => {
-	const handleDelete = async () => {
-		try {
-			const res = await axios.delete(`${serverURL}/api/items/delete/${_id}`);
-			getItems();
-		} catch (e) {
-			console.error(e);
-		}
-	};
+const Flower = ({
+  flower: { _id, fileName, name, price, location },
+  getItems,
+}) => {
+  const handleDelete = async () => {
+    try {
+      const res = await axios.delete(`${serverURL}/api/items/delete/${_id}`);
+      getItems();
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
-	return (
+  return (
     <div className='flower'>
       <div
         className='flower__image'
         style={{
           backgroundImage: `url(
-            ${serverURL}/api/items/picture/${_id}
+            ${location}
           )`,
         }}
       ></div>
